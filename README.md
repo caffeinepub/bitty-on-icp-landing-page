@@ -1,2 +1,3 @@
-# bitty-on-icp-landing-page
-Exported from Caffeine project: Remove the PROJECT WALLET section from the UI
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

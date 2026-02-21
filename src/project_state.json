@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "New project",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-remove-the-projectnewsupdates-component-from-the-main-app-tsx-layout",
+      "title": "Remove the ProjectNewsUpdates component from the main App.tsx layout",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-news-updates-navigation-item-from-the-topnavigation-dropdown-menu",
+      "title": "Remove the 'News & Updates' navigation item from the TopNavigation dropdown menu",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [],
+  "projectName": "Remove project news/updates section and menu tab",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

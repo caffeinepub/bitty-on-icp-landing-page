@@ -1,0 +1,51 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-remove-the-projectnewsupdates-component-from-the-main-app-tsx-layout",
+      "featureTitle": "Remove the ProjectNewsUpdates component from the main App.tsx layout",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "blob-storage@3.0.0",
+        "authorization@3.0.0",
+        "http-outcalls@3.0.0",
+        "qr-code@1.0.0",
+        "camera@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-remove-the-news-updates-navigation-item-from-the-topnavigation-dropdown-menu",
+      "featureTitle": "Remove the 'News & Updates' navigation item from the TopNavigation dropdown menu",
+      "files": [
+        "frontend/src/components/TopNavigation.tsx"
+      ],
+      "components": [
+        "blob-storage@3.0.0",
+        "authorization@3.0.0",
+        "http-outcalls@3.0.0",
+        "qr-code@1.0.0",
+        "camera@1.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

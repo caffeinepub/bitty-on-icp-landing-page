@@ -1,0 +1,59 @@
+{
+  "kind": "build_request",
+  "title": "Remove project news/updates section and menu tab",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Remove the ProjectNewsUpdates component from the main App.tsx layout",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-11",
+          "msg-13"
+        ],
+        "quotes": [
+          "Just the section on the main page",
+          "remove the \"project news/updates\" section from the main page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The ProjectNewsUpdates section no longer appears on the main page",
+        "App.tsx no longer imports or renders the ProjectNewsUpdates component"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Remove the 'News & Updates' navigation item from the TopNavigation dropdown menu",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-11",
+          "msg-13"
+        ],
+        "quotes": [
+          "the tab in the drop down menu",
+          "the \"news/updates\" tab from the dropdown menu"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The 'News & Updates' menu item no longer appears in the TopNavigation dropdown",
+        "All other menu items remain functional"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify backend news update functionality or data structures",
+    "Preserve all other navigation menu items and their functionality",
+    "Do not modify any immutable frontend paths"
+  ],
+  "nonGoals": [
+    "Removing backend news update data or endpoints",
+    "Modifying the styling or layout of other sections",
+    "Changing the behavior of other navigation menu items"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
