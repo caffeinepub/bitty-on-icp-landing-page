@@ -51,11 +51,6 @@ export default function TopNavigation() {
       type: "scroll" as const,
     },
     { label: "BITTYICP BLING", type: "comingSoon" as const },
-    {
-      label: "MEME PAGE",
-      url: "https://bittyicpmeme-ebv.caffeine.xyz/",
-      type: "external" as const,
-    },
     { label: "CONTRACT ID", type: "contractId" as const },
   ];
 

@@ -39,24 +39,8 @@ export default function Hero() {
     }
   };
 
-  const handleVotingClick = () => {
-    window.open(
-      "https://bittyvoting-lso.caffeine.xyz/",
-      "_blank",
-      "noopener,noreferrer",
-    );
-  };
-
   const handleBlingClick = () => {
     setShowComingSoon(true);
-  };
-
-  const handleMemePageClick = () => {
-    window.open(
-      "https://bittyicpmeme-ebv.caffeine.xyz/",
-      "_blank",
-      "noopener,noreferrer",
-    );
   };
 
   return (
@@ -145,19 +129,6 @@ export default function Hero() {
           </Button>
 
           <Button
-            onClick={handleVotingClick}
-            size="lg"
-            className="bg-neon-orange hover:bg-neon-orange/90 text-white font-black text-xl px-12 py-8 rounded-full shadow-neon-orange-intense transform hover:scale-110 transition-all duration-300 border-4 border-white/20 group relative"
-          >
-            <div className="absolute inset-0 rounded-full bg-neon-orange opacity-0 group-hover:opacity-80 blur-2xl transition-opacity duration-300" />
-            <Sparkles className="mr-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500 relative z-10" />
-            <span className="relative z-10 drop-shadow-glow-orange-intense">
-              VOTING
-            </span>
-            <Sparkles className="ml-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500 relative z-10" />
-          </Button>
-
-          <Button
             onClick={handleBlingClick}
             size="lg"
             className="bg-neon-orange hover:bg-neon-orange/90 text-white font-black text-xl px-12 py-8 rounded-full shadow-neon-orange-intense transform hover:scale-110 transition-all duration-300 border-4 border-white/20 group relative"
@@ -166,19 +137,6 @@ export default function Hero() {
             <Sparkles className="mr-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500 relative z-10" />
             <span className="relative z-10 drop-shadow-glow-orange-intense">
               BITTYICP BLING
-            </span>
-            <Sparkles className="ml-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500 relative z-10" />
-          </Button>
-
-          <Button
-            onClick={handleMemePageClick}
-            size="lg"
-            className="bg-neon-orange hover:bg-neon-orange/90 text-white font-black text-xl px-12 py-8 rounded-full shadow-neon-orange-intense transform hover:scale-110 transition-all duration-300 border-4 border-white/20 group relative"
-          >
-            <div className="absolute inset-0 rounded-full bg-neon-orange opacity-0 group-hover:opacity-80 blur-2xl transition-opacity duration-300" />
-            <Sparkles className="mr-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500 relative z-10" />
-            <span className="relative z-10 drop-shadow-glow-orange-intense">
-              MEME PAGE
             </span>
             <Sparkles className="ml-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500 relative z-10" />
           </Button>
