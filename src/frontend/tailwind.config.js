@@ -55,6 +55,7 @@ export default {
         'neon-cyan': 'oklch(0.75 0.20 200)',
         'neon-white': 'oklch(0.98 0.02 280)',
         'neon-purple': 'oklch(0.60 0.25 290)',
+        'neon-blue': '#29ABE2',
       },
       boxShadow: {
         'neon-pink': '0 0 20px oklch(0.70 0.30 340), 0 0 40px oklch(0.70 0.30 340)',
@@ -63,6 +64,8 @@ export default {
         'neon-cyan': '0 0 20px oklch(0.75 0.20 200), 0 0 40px oklch(0.75 0.20 200)',
         'neon-white': '0 0 20px oklch(0.98 0.02 280), 0 0 40px oklch(0.98 0.02 280)',
         'neon-purple': '0 0 20px oklch(0.60 0.25 290), 0 0 40px oklch(0.60 0.25 290)',
+        'neon-blue': '0 0 20px #29ABE2, 0 0 40px #29ABE2',
+        'neon-blue-intense': '0 0 30px #29ABE2, 0 0 60px #29ABE2, 0 0 90px #29ABE2',
       },
     },
   },

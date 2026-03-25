@@ -49,14 +49,14 @@ export default function Hero() {
 
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-neon-pink rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" />
-        <div className="absolute top-40 right-10 w-72 h-72 bg-neon-orange rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
+        <div className="absolute top-40 right-10 w-72 h-72 bg-neon-blue rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
         <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-neon-cyan rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto text-center">
         <div className="relative mb-8 group">
-          <div className="absolute inset-0 bg-gradient-to-r from-neon-pink via-neon-orange to-neon-cyan rounded-3xl blur-2xl opacity-50 group-hover:opacity-75 transition-opacity duration-500" />
-          <div className="relative bg-gradient-to-br from-purple-800 to-purple-900 rounded-3xl p-4 border-4 border-neon-orange shadow-2xl transform group-hover:scale-105 transition-transform duration-500">
+          <div className="absolute inset-0 bg-gradient-to-r from-neon-pink via-neon-blue to-neon-cyan rounded-3xl blur-2xl opacity-50 group-hover:opacity-75 transition-opacity duration-500" />
+          <div className="relative bg-gradient-to-br from-purple-800 to-purple-900 rounded-3xl p-4 border-4 border-neon-blue shadow-2xl transform group-hover:scale-105 transition-transform duration-500">
             <img
               src="/assets/IMG_3987.jpeg"
               alt="Bitty - The Original Crypto Mascot"
@@ -88,11 +88,14 @@ export default function Hero() {
           <Button
             onClick={handleNewToICP}
             size="lg"
-            className="bg-neon-orange hover:bg-neon-orange/90 text-white font-black text-xl px-12 py-8 rounded-full shadow-neon-orange-intense transform hover:scale-110 transition-all duration-300 border-4 border-white/20 group relative"
+            className="bg-neon-blue hover:bg-neon-blue/80 text-white font-black text-xl px-12 py-8 rounded-full shadow-neon-blue-intense transform hover:scale-110 transition-all duration-300 border-4 border-white/20 hover:border-white/50 group relative"
           >
-            <div className="absolute inset-0 rounded-full bg-neon-orange opacity-0 group-hover:opacity-80 blur-2xl transition-opacity duration-300" />
+            <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-300" />
             <Sparkles className="mr-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500 relative z-10" />
-            <span className="relative z-10 drop-shadow-glow-orange-intense">
+            <span
+              className="relative z-10"
+              style={{ textShadow: "0 0 10px rgba(255,255,255,0.5)" }}
+            >
               NEW TO ICP?
             </span>
             <Sparkles className="ml-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500 relative z-10" />
@@ -101,11 +104,14 @@ export default function Hero() {
           <Button
             onClick={handleTokenDashboardClick}
             size="lg"
-            className="bg-neon-orange hover:bg-neon-orange/90 text-white font-black text-xl px-12 py-8 rounded-full shadow-neon-orange-intense transform hover:scale-110 transition-all duration-300 border-4 border-white/20 group relative"
+            className="bg-neon-blue hover:bg-neon-blue/80 text-white font-black text-xl px-12 py-8 rounded-full shadow-neon-blue-intense transform hover:scale-110 transition-all duration-300 border-4 border-white/20 hover:border-white/50 group relative"
           >
-            <div className="absolute inset-0 rounded-full bg-neon-orange opacity-0 group-hover:opacity-80 blur-2xl transition-opacity duration-300" />
+            <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-300" />
             <Sparkles className="mr-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500 relative z-10" />
-            <span className="relative z-10 drop-shadow-glow-orange-intense">
+            <span
+              className="relative z-10"
+              style={{ textShadow: "0 0 10px rgba(255,255,255,0.5)" }}
+            >
               TOKEN DASHBOARD
             </span>
             <Sparkles className="ml-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500 relative z-10" />
@@ -114,11 +120,14 @@ export default function Hero() {
           <Button
             onClick={handleGamesClick}
             size="lg"
-            className="bg-neon-orange hover:bg-neon-orange/90 text-white font-black text-xl px-12 py-8 rounded-full shadow-neon-orange-intense transform hover:scale-110 transition-all duration-300 border-4 border-white/20 group relative"
+            className="bg-neon-blue hover:bg-neon-blue/80 text-white font-black text-xl px-12 py-8 rounded-full shadow-neon-blue-intense transform hover:scale-110 transition-all duration-300 border-4 border-white/20 hover:border-white/50 group relative"
           >
-            <div className="absolute inset-0 rounded-full bg-neon-orange opacity-0 group-hover:opacity-80 blur-2xl transition-opacity duration-300" />
+            <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-300" />
             <Sparkles className="mr-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500 relative z-10" />
-            <span className="relative z-10 drop-shadow-glow-orange-intense">
+            <span
+              className="relative z-10"
+              style={{ textShadow: "0 0 10px rgba(255,255,255,0.5)" }}
+            >
               GAMES
             </span>
             <Sparkles className="ml-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500 relative z-10" />
@@ -127,11 +136,14 @@ export default function Hero() {
           <Button
             onClick={handleRoadmapClick}
             size="lg"
-            className="bg-neon-orange hover:bg-neon-orange/90 text-white font-black text-xl px-12 py-8 rounded-full shadow-neon-orange-intense transform hover:scale-110 transition-all duration-300 border-4 border-white/20 group relative"
+            className="bg-neon-blue hover:bg-neon-blue/80 text-white font-black text-xl px-12 py-8 rounded-full shadow-neon-blue-intense transform hover:scale-110 transition-all duration-300 border-4 border-white/20 hover:border-white/50 group relative"
           >
-            <div className="absolute inset-0 rounded-full bg-neon-orange opacity-0 group-hover:opacity-80 blur-2xl transition-opacity duration-300" />
+            <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-300" />
             <Sparkles className="mr-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500 relative z-10" />
-            <span className="relative z-10 drop-shadow-glow-orange-intense">
+            <span
+              className="relative z-10"
+              style={{ textShadow: "0 0 10px rgba(255,255,255,0.5)" }}
+            >
               ROADMAP
             </span>
             <Sparkles className="ml-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500 relative z-10" />
@@ -140,11 +152,14 @@ export default function Hero() {
           <Button
             onClick={handleBlingClick}
             size="lg"
-            className="bg-neon-orange hover:bg-neon-orange/90 text-white font-black text-xl px-12 py-8 rounded-full shadow-neon-orange-intense transform hover:scale-110 transition-all duration-300 border-4 border-white/20 group relative"
+            className="bg-neon-blue hover:bg-neon-blue/80 text-white font-black text-xl px-12 py-8 rounded-full shadow-neon-blue-intense transform hover:scale-110 transition-all duration-300 border-4 border-white/20 hover:border-white/50 group relative"
           >
-            <div className="absolute inset-0 rounded-full bg-neon-orange opacity-0 group-hover:opacity-80 blur-2xl transition-opacity duration-300" />
+            <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-300" />
             <Sparkles className="mr-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500 relative z-10" />
-            <span className="relative z-10 drop-shadow-glow-orange-intense">
+            <span
+              className="relative z-10"
+              style={{ textShadow: "0 0 10px rgba(255,255,255,0.5)" }}
+            >
               BITTYICP BLING
             </span>
             <Sparkles className="ml-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500 relative z-10" />
