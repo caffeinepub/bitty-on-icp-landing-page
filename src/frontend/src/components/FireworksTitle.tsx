@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 interface Particle {
   x: number;
@@ -23,7 +23,7 @@ export default function FireworksTitle() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     // Set canvas size
@@ -35,13 +35,13 @@ export default function FireworksTitle() {
     };
 
     updateCanvasSize();
-    window.addEventListener('resize', updateCanvasSize);
+    window.addEventListener("resize", updateCanvasSize);
 
     const colors = [
-      'oklch(0.65 0.28 340)', // neon-pink
-      'oklch(0.72 0.22 45)',  // neon-orange
-      'oklch(0.75 0.18 195)', // neon-cyan
-      'oklch(0.85 0.15 120)', // neon-green
+      "oklch(0.65 0.28 340)", // neon-pink
+      "oklch(0.72 0.22 45)", // neon-orange
+      "oklch(0.75 0.18 195)", // neon-cyan
+      "oklch(0.85 0.15 120)", // neon-green
     ];
 
     const spawnParticles = (centerX: number, centerY: number) => {
@@ -52,7 +52,7 @@ export default function FireworksTitle() {
         // Increased speed from 2-5 to 3-8 for larger spread
         const speed = 3 + Math.random() * 5;
         const life = 60 + Math.random() * 40;
-        
+
         particlesRef.current.push({
           x: centerX,
           y: centerY,
@@ -68,27 +68,34 @@ export default function FireworksTitle() {
       }
     };
 
-    const drawICPSymbol = (ctx: CanvasRenderingContext2D, x: number, y: number, size: number, rotation: number, alpha: number) => {
+    const drawICPSymbol = (
+      ctx: CanvasRenderingContext2D,
+      x: number,
+      y: number,
+      size: number,
+      rotation: number,
+      alpha: number,
+    ) => {
       ctx.save();
       ctx.translate(x, y);
       ctx.rotate(rotation);
       ctx.globalAlpha = alpha;
-      
+
       // Draw simplified ICP logo (infinity symbol style)
-      ctx.strokeStyle = 'currentColor';
+      ctx.strokeStyle = "currentColor";
       ctx.lineWidth = size / 8;
-      ctx.lineCap = 'round';
-      
+      ctx.lineCap = "round";
+
       // Left loop
       ctx.beginPath();
       ctx.arc(-size / 4, 0, size / 3, 0, Math.PI * 2);
       ctx.stroke();
-      
+
       // Right loop
       ctx.beginPath();
       ctx.arc(size / 4, 0, size / 3, 0, Math.PI * 2);
       ctx.stroke();
-      
+
       ctx.restore();
     };
 
@@ -107,8 +114,10 @@ export default function FireworksTitle() {
           { x: rect.width * 0.85, y: rect.height * 0.25 },
         ];
         // Spawn from 2 random points instead of 1 for more intensity
-        const point1 = spawnPoints[Math.floor(Math.random() * spawnPoints.length)];
-        const point2 = spawnPoints[Math.floor(Math.random() * spawnPoints.length)];
+        const point1 =
+          spawnPoints[Math.floor(Math.random() * spawnPoints.length)];
+        const point2 =
+          spawnPoints[Math.floor(Math.random() * spawnPoints.length)];
         spawnParticles(point1.x, point1.y);
         spawnParticles(point2.x, point2.y);
         lastSpawnRef.current = timestamp;
@@ -129,15 +138,37 @@ export default function FireworksTitle() {
         const alpha = particle.life / particle.maxLife;
         ctx.fillStyle = particle.color;
         ctx.strokeStyle = particle.color;
-        
-        drawICPSymbol(ctx, particle.x, particle.y, particle.size, particle.rotation, alpha);
+
+        drawICPSymbol(
+          ctx,
+          particle.x,
+          particle.y,
+          particle.size,
+          particle.rotation,
+          alpha,
+        );
 
         // Draw glowing trail with increased intensity
-        const gradient = ctx.createRadialGradient(particle.x, particle.y, 0, particle.x, particle.y, particle.size * 1.5);
-        gradient.addColorStop(0, particle.color.replace(')', ` / ${alpha * 0.5})`));
-        gradient.addColorStop(1, particle.color.replace(')', ' / 0)'));
+        const gradient = ctx.createRadialGradient(
+          particle.x,
+          particle.y,
+          0,
+          particle.x,
+          particle.y,
+          particle.size * 1.5,
+        );
+        gradient.addColorStop(
+          0,
+          particle.color.replace(")", ` / ${alpha * 0.5})`),
+        );
+        gradient.addColorStop(1, particle.color.replace(")", " / 0)"));
         ctx.fillStyle = gradient;
-        ctx.fillRect(particle.x - particle.size * 1.5, particle.y - particle.size * 1.5, particle.size * 3, particle.size * 3);
+        ctx.fillRect(
+          particle.x - particle.size * 1.5,
+          particle.y - particle.size * 1.5,
+          particle.size * 3,
+          particle.size * 3,
+        );
 
         return true;
       });
@@ -148,7 +179,7 @@ export default function FireworksTitle() {
     animationFrameRef.current = requestAnimationFrame(animate);
 
     return () => {
-      window.removeEventListener('resize', updateCanvasSize);
+      window.removeEventListener("resize", updateCanvasSize);
       if (animationFrameRef.current !== null) {
         cancelAnimationFrame(animationFrameRef.current);
       }
@@ -159,7 +190,7 @@ export default function FireworksTitle() {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full pointer-events-none"
-      style={{ mixBlendMode: 'screen' }}
+      style={{ mixBlendMode: "screen" }}
     />
   );
 }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -25,24 +25,24 @@
     --muted: oklch(0.25 0.05 280);
     --muted-foreground: oklch(0.65 0.05 280);
 
-    --accent: oklch(0.30 0.05 280);
+    --accent: oklch(0.3 0.05 280);
     --accent-foreground: oklch(0.98 0.02 280);
 
     --destructive: oklch(0.55 0.25 25);
     --destructive-foreground: oklch(0.98 0.02 280);
 
-    --border: oklch(0.30 0.05 280);
-    --input: oklch(0.30 0.05 280);
+    --border: oklch(0.3 0.05 280);
+    --input: oklch(0.3 0.05 280);
     --ring: oklch(0.65 0.25 280);
 
     --radius: 0.5rem;
 
     /* Enhanced neon colors with improved saturation and brightness */
-    --neon-pink: oklch(0.70 0.30 340);
-    --neon-orange: oklch(0.70 0.28 45);
-    --neon-cyan: oklch(0.75 0.20 200);
+    --neon-pink: oklch(0.7 0.3 340);
+    --neon-orange: oklch(0.7 0.28 45);
+    --neon-cyan: oklch(0.75 0.2 200);
     --neon-white: oklch(0.98 0.02 280);
-    --neon-purple: oklch(0.60 0.25 290);
+    --neon-purple: oklch(0.6 0.25 290);
   }
 
   .dark {
@@ -64,14 +64,14 @@
     --muted: oklch(0.25 0.05 280);
     --muted-foreground: oklch(0.65 0.05 280);
 
-    --accent: oklch(0.30 0.05 280);
+    --accent: oklch(0.3 0.05 280);
     --accent-foreground: oklch(0.98 0.02 280);
 
     --destructive: oklch(0.55 0.25 25);
     --destructive-foreground: oklch(0.98 0.02 280);
 
-    --border: oklch(0.30 0.05 280);
-    --input: oklch(0.30 0.05 280);
+    --border: oklch(0.3 0.05 280);
+    --input: oklch(0.3 0.05 280);
     --ring: oklch(0.65 0.25 280);
   }
 }
@@ -87,42 +87,52 @@
 
 /* Enhanced neon glow effects with sharper edges and improved contrast */
 .drop-shadow-glow-pink {
-  filter: drop-shadow(0 0 8px var(--neon-pink)) drop-shadow(0 0 16px var(--neon-pink));
+  filter: drop-shadow(0 0 8px var(--neon-pink))
+    drop-shadow(0 0 16px var(--neon-pink));
 }
 
 .drop-shadow-glow-orange {
-  filter: drop-shadow(0 0 8px var(--neon-orange)) drop-shadow(0 0 16px var(--neon-orange));
+  filter: drop-shadow(0 0 8px var(--neon-orange))
+    drop-shadow(0 0 16px var(--neon-orange));
 }
 
 .drop-shadow-glow-orange-intense {
-  filter: drop-shadow(0 0 12px var(--neon-orange)) drop-shadow(0 0 24px var(--neon-orange)) drop-shadow(0 0 36px var(--neon-orange));
+  filter: drop-shadow(0 0 12px var(--neon-orange))
+    drop-shadow(0 0 24px var(--neon-orange))
+    drop-shadow(0 0 36px var(--neon-orange));
 }
 
 .drop-shadow-glow-cyan {
-  filter: drop-shadow(0 0 8px var(--neon-cyan)) drop-shadow(0 0 16px var(--neon-cyan));
+  filter: drop-shadow(0 0 8px var(--neon-cyan))
+    drop-shadow(0 0 16px var(--neon-cyan));
 }
 
 .drop-shadow-glow-white {
-  filter: drop-shadow(0 0 8px var(--neon-white)) drop-shadow(0 0 16px var(--neon-white));
+  filter: drop-shadow(0 0 8px var(--neon-white))
+    drop-shadow(0 0 16px var(--neon-white));
 }
 
 .drop-shadow-glow-purple {
-  filter: drop-shadow(0 0 8px var(--neon-purple)) drop-shadow(0 0 16px var(--neon-purple));
+  filter: drop-shadow(0 0 8px var(--neon-purple))
+    drop-shadow(0 0 16px var(--neon-purple));
 }
 
 /* Softer glow for Story section title */
 .drop-shadow-glow-cyan-soft {
-  filter: drop-shadow(0 0 4px var(--neon-cyan)) drop-shadow(0 0 8px var(--neon-cyan));
+  filter: drop-shadow(0 0 4px var(--neon-cyan))
+    drop-shadow(0 0 8px var(--neon-cyan));
 }
 
 /* Subtle glow for token logo images */
 .drop-shadow-glow-logo {
-  filter: drop-shadow(0 0 3px var(--neon-cyan)) drop-shadow(0 0 6px var(--neon-cyan));
+  filter: drop-shadow(0 0 3px var(--neon-cyan))
+    drop-shadow(0 0 6px var(--neon-cyan));
 }
 
 /* Enhanced animations */
 @keyframes pulse-slow {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
@@ -135,7 +145,8 @@
 }
 
 @keyframes blob {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0, 0) scale(1);
   }
   33% {
@@ -192,28 +203,28 @@
 /* Dynamic color-shifting animation for tournament modal text */
 @keyframes color-shift {
   0% {
-    color: oklch(0.70 0.28 45);
-    text-shadow: 0 0 20px oklch(0.70 0.28 45), 0 0 40px oklch(0.70 0.28 45);
+    color: oklch(0.7 0.28 45);
+    text-shadow: 0 0 20px oklch(0.7 0.28 45), 0 0 40px oklch(0.7 0.28 45);
   }
   20% {
-    color: oklch(0.60 0.25 290);
-    text-shadow: 0 0 20px oklch(0.60 0.25 290), 0 0 40px oklch(0.60 0.25 290);
+    color: oklch(0.6 0.25 290);
+    text-shadow: 0 0 20px oklch(0.6 0.25 290), 0 0 40px oklch(0.6 0.25 290);
   }
   40% {
-    color: oklch(0.75 0.20 200);
-    text-shadow: 0 0 20px oklch(0.75 0.20 200), 0 0 40px oklch(0.75 0.20 200);
+    color: oklch(0.75 0.2 200);
+    text-shadow: 0 0 20px oklch(0.75 0.2 200), 0 0 40px oklch(0.75 0.2 200);
   }
   60% {
-    color: oklch(0.70 0.30 340);
-    text-shadow: 0 0 20px oklch(0.70 0.30 340), 0 0 40px oklch(0.70 0.30 340);
+    color: oklch(0.7 0.3 340);
+    text-shadow: 0 0 20px oklch(0.7 0.3 340), 0 0 40px oklch(0.7 0.3 340);
   }
   80% {
     color: oklch(0.98 0.02 280);
     text-shadow: 0 0 20px oklch(0.98 0.02 280), 0 0 40px oklch(0.98 0.02 280);
   }
   100% {
-    color: oklch(0.70 0.28 45);
-    text-shadow: 0 0 20px oklch(0.70 0.28 45), 0 0 40px oklch(0.70 0.28 45);
+    color: oklch(0.7 0.28 45);
+    text-shadow: 0 0 20px oklch(0.7 0.28 45), 0 0 40px oklch(0.7 0.28 45);
   }
 }
 
@@ -251,5 +262,5 @@
 
 /* Arcade-style font for game titles */
 .font-arcade {
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", cursive;
 }

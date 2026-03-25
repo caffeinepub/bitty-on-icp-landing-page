@@ -1,18 +1,18 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ThemeProvider } from 'next-themes';
-import { Toaster } from '@/components/ui/sonner';
-import TopNavigation from './components/TopNavigation';
-import Hero from './components/Hero';
-import FeaturedCharacter from './components/FeaturedCharacter';
-import Story from './components/Story';
-import Games from './components/Games';
-import Whitepaper from './components/Whitepaper';
-import TokenDashboard from './components/TokenDashboard';
-import ContractId from './components/ContractId';
-import Partnerships from './components/Partnerships';
-import LegalDisclaimer from './components/LegalDisclaimer';
-import Footer from './components/Footer';
-import Socials from './components/Socials';
+import { Toaster } from "@/components/ui/sonner";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ThemeProvider } from "next-themes";
+import ContractId from "./components/ContractId";
+import FeaturedCharacter from "./components/FeaturedCharacter";
+import Footer from "./components/Footer";
+import Games from "./components/Games";
+import Hero from "./components/Hero";
+import LegalDisclaimer from "./components/LegalDisclaimer";
+import Partnerships from "./components/Partnerships";
+import Socials from "./components/Socials";
+import Story from "./components/Story";
+import TokenDashboard from "./components/TokenDashboard";
+import TopNavigation from "./components/TopNavigation";
+import Whitepaper from "./components/Whitepaper";
 
 const queryClient = new QueryClient({
   defaultOptions: {

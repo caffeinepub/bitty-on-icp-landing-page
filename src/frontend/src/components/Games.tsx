@@ -1,17 +1,17 @@
-import { Gamepad2 } from 'lucide-react';
+import { Gamepad2 } from "lucide-react";
 
 export default function Games() {
   return (
     <section id="games" className="relative py-20 px-4 mb-20 overflow-hidden">
       {/* Background Image - Bitcoin Miner Arcade Machine */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/assets/generated/IMG_3988.jpeg)' }}
+        style={{ backgroundImage: "url(/assets/generated/IMG_3988.jpeg)" }}
       />
-      
+
       {/* Gradient Overlay for better text visibility and neon blend */}
       <div className="absolute inset-0 bg-gradient-to-b from-purple-900/70 via-purple-800/60 to-purple-900/70" />
-      
+
       {/* Animated Blobs for neon aesthetic */}
       <div className="absolute top-10 left-10 w-64 h-64 bg-neon-pink/15 rounded-full blur-3xl animate-blob" />
       <div className="absolute bottom-10 right-10 w-80 h-80 bg-neon-cyan/15 rounded-full blur-3xl animate-blob animation-delay-2000" />
@@ -35,7 +35,7 @@ export default function Games() {
 
         {/* Game Links Container */}
         <div className="space-y-6 max-w-2xl mx-auto">
-          {/* BITTY DUCK BLAST Game Link - Enhanced with Arcade Font and Orange Glow */}
+          {/* BITTY DUCK BLAST Game Link */}
           <div className="bg-gradient-to-br from-purple-800/70 to-purple-900/70 backdrop-blur-md border-4 border-neon-cyan/50 rounded-3xl p-8 shadow-2xl hover:border-neon-pink/70 transition-all duration-300">
             <a
               href="https://bittyduckblast-m2n.caffeine.xyz/"
@@ -49,7 +49,7 @@ export default function Games() {
             </a>
           </div>
 
-          {/* FLY BITTY FLY Game Link - Identical styling to BITTY DUCK BLAST */}
+          {/* FLY BITTY FLY Game Link */}
           <div className="bg-gradient-to-br from-purple-800/70 to-purple-900/70 backdrop-blur-md border-4 border-neon-cyan/50 rounded-3xl p-8 shadow-2xl hover:border-neon-pink/70 transition-all duration-300">
             <a
               href="https://flybittyfly-qkh.caffeine.xyz/"
@@ -59,6 +59,20 @@ export default function Games() {
             >
               <p className="arcade-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-neon-orange drop-shadow-glow-orange-intense leading-relaxed group-hover:scale-105 transition-transform duration-300 animate-pulse-slow">
                 FLY BITTY FLY
+              </p>
+            </a>
+          </div>
+
+          {/* BITTY BUILDER Game Link */}
+          <div className="bg-gradient-to-br from-purple-800/70 to-purple-900/70 backdrop-blur-md border-4 border-neon-cyan/50 rounded-3xl p-8 shadow-2xl hover:border-neon-pink/70 transition-all duration-300">
+            <a
+              href="https://bitty-builder-i3o.caffeine.xyz/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group"
+            >
+              <p className="arcade-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-neon-orange drop-shadow-glow-orange-intense leading-relaxed group-hover:scale-105 transition-transform duration-300 animate-pulse-slow">
+                BITTY BUILDER
               </p>
             </a>
           </div>

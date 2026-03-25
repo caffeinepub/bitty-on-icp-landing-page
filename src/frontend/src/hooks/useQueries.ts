@@ -1,9 +1,13 @@
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { useActor } from './useActor';
-import { useInternetIdentity } from './useInternetIdentity';
-import { principalToAccountId, formatTokenBalance, parseTokenAmount } from '../lib/accountId';
-import { Principal } from '@icp-sdk/core/principal';
-import type { UserProfile, NewsUpdate } from '../backend';
+import { Principal } from "@icp-sdk/core/principal";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import type { NewsUpdate, UserProfile } from "../backend";
+import {
+  formatTokenBalance,
+  parseTokenAmount,
+  principalToAccountId,
+} from "../lib/accountId";
+import { useActor } from "./useActor";
+import { useInternetIdentity } from "./useInternetIdentity";
 
 // Types for wallet and trading functionality
 export interface TokenBalance {
@@ -78,17 +82,17 @@ interface ICRC1Ledger {
 }
 
 // Canister IDs for tokens
-const BITTYICP_CANISTER_ID = 'qroj6-lyaaa-aaaam-qeqta-cai';
-const ICP_LEDGER_CANISTER_ID = 'ryjl3-tyaaa-aaaaa-aaaba-cai';
-const CKBTC_CANISTER_ID = 'mxzaz-hqaaa-aaaar-qaada-cai';
+const BITTYICP_CANISTER_ID = "qroj6-lyaaa-aaaam-qeqta-cai";
+const ICP_LEDGER_CANISTER_ID = "ryjl3-tyaaa-aaaaa-aaaba-cai";
+const CKBTC_CANISTER_ID = "mxzaz-hqaaa-aaaar-qaada-cai";
 
 export function useGetCallerUserProfile() {
   const { actor, isFetching: actorFetching } = useActor();
 
   const query = useQuery<UserProfile | null>({
-    queryKey: ['currentUserProfile'],
+    queryKey: ["currentUserProfile"],
     queryFn: async () => {
-      if (!actor) throw new Error('Actor not available');
+      if (!actor) throw new Error("Actor not available");
       return actor.getCallerUserProfile();
     },
     enabled: !!actor && !actorFetching,
@@ -108,11 +112,11 @@ export function useSaveCallerUserProfile() {
 
   return useMutation({
     mutationFn: async (profile: UserProfile) => {
-      if (!actor) throw new Error('Actor not available');
+      if (!actor) throw new Error("Actor not available");
       return actor.saveCallerUserProfile(profile);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['currentUserProfile'] });
+      queryClient.invalidateQueries({ queryKey: ["currentUserProfile"] });
     },
   });
 }
@@ -121,7 +125,7 @@ export function useGetAllNewsUpdates() {
   const { actor, isFetching } = useActor();
 
   return useQuery<NewsUpdate[]>({
-    queryKey: ['newsUpdates'],
+    queryKey: ["newsUpdates"],
     queryFn: async () => {
       if (!actor) return [];
       const updates = await actor.getAllNewsUpdates();
@@ -140,10 +144,10 @@ export function useGetCallerWalletInfo() {
   const { identity } = useInternetIdentity();
 
   return useQuery<WalletInfo>({
-    queryKey: ['walletInfo', identity?.getPrincipal().toString()],
+    queryKey: ["walletInfo", identity?.getPrincipal().toString()],
     queryFn: async () => {
-      if (!identity) throw new Error('Identity not available');
-      
+      if (!identity) throw new Error("Identity not available");
+
       const principal = identity.getPrincipal();
       const principalId = principal.toString();
       const accountId = principalToAccountId(principal);
@@ -154,22 +158,24 @@ export function useGetCallerWalletInfo() {
       };
     },
     enabled: !!identity,
-    staleTime: Infinity, // Wallet info doesn't change
+    staleTime: Number.POSITIVE_INFINITY, // Wallet info doesn't change
   });
 }
 
 // Helper function to create ICRC-1 actor
 async function createICRC1Actor(canisterId: string): Promise<ICRC1Ledger> {
-  const { Actor, HttpAgent } = await import('@dfinity/agent');
-  
+  const { Actor, HttpAgent } = await import("@dfinity/agent");
+
   const agent = new HttpAgent({
-    host: 'https://ic0.app',
+    host: "https://ic0.app",
   });
 
   // Only fetch root key in development
-  if (process.env.DFX_NETWORK !== 'ic') {
-    await agent.fetchRootKey().catch(err => {
-      console.warn('Unable to fetch root key. Check to ensure that your local replica is running');
+  if (process.env.DFX_NETWORK !== "ic") {
+    await agent.fetchRootKey().catch((err) => {
+      console.warn(
+        "Unable to fetch root key. Check to ensure that your local replica is running",
+      );
       console.error(err);
     });
   }
@@ -198,10 +204,14 @@ async function createICRC1Actor(canisterId: string): Promise<ICRC1Ledger> {
       GenericError: IDL.Record({ error_code: IDL.Nat, message: IDL.Text }),
     });
     return IDL.Service({
-      icrc1_balance_of: IDL.Func([Account], [IDL.Nat], ['query']),
-      icrc1_transfer: IDL.Func([TransferArgs], [IDL.Variant({ Ok: IDL.Nat, Err: TransferError })], []),
-      icrc1_decimals: IDL.Func([], [IDL.Nat8], ['query']),
-      icrc1_fee: IDL.Func([], [IDL.Nat], ['query']),
+      icrc1_balance_of: IDL.Func([Account], [IDL.Nat], ["query"]),
+      icrc1_transfer: IDL.Func(
+        [TransferArgs],
+        [IDL.Variant({ Ok: IDL.Nat, Err: TransferError })],
+        [],
+      ),
+      icrc1_decimals: IDL.Func([], [IDL.Nat8], ["query"]),
+      icrc1_fee: IDL.Func([], [IDL.Nat], ["query"]),
     });
   };
 
@@ -216,14 +226,14 @@ export function useGetCallerBittyBalance() {
   const { identity } = useInternetIdentity();
 
   return useQuery<TokenBalance>({
-    queryKey: ['bittyBalance', identity?.getPrincipal().toString()],
+    queryKey: ["bittyBalance", identity?.getPrincipal().toString()],
     queryFn: async () => {
-      if (!identity) throw new Error('Identity not available');
-      
+      if (!identity) throw new Error("Identity not available");
+
       try {
         const actor = await createICRC1Actor(BITTYICP_CANISTER_ID);
         const principal = identity.getPrincipal();
-        
+
         const balance = await actor.icrc1_balance_of({
           owner: principal.toUint8Array(),
           subaccount: [],
@@ -234,7 +244,7 @@ export function useGetCallerBittyBalance() {
           decimals: 8,
         };
       } catch (error) {
-        console.error('Error fetching BITTYICP balance:', error);
+        console.error("Error fetching BITTYICP balance:", error);
         return {
           balance: BigInt(0),
           decimals: 8,
@@ -251,14 +261,14 @@ export function useGetCallerIcpBalance() {
   const { identity } = useInternetIdentity();
 
   return useQuery<TokenBalance>({
-    queryKey: ['icpBalance', identity?.getPrincipal().toString()],
+    queryKey: ["icpBalance", identity?.getPrincipal().toString()],
     queryFn: async () => {
-      if (!identity) throw new Error('Identity not available');
-      
+      if (!identity) throw new Error("Identity not available");
+
       try {
         const actor = await createICRC1Actor(ICP_LEDGER_CANISTER_ID);
         const principal = identity.getPrincipal();
-        
+
         const balance = await actor.icrc1_balance_of({
           owner: principal.toUint8Array(),
           subaccount: [],
@@ -269,7 +279,7 @@ export function useGetCallerIcpBalance() {
           decimals: 8,
         };
       } catch (error) {
-        console.error('Error fetching ICP balance:', error);
+        console.error("Error fetching ICP balance:", error);
         return {
           balance: BigInt(0),
           decimals: 8,
@@ -286,14 +296,14 @@ export function useGetCallerBtcBalance() {
   const { identity } = useInternetIdentity();
 
   return useQuery<TokenBalance>({
-    queryKey: ['btcBalance', identity?.getPrincipal().toString()],
+    queryKey: ["btcBalance", identity?.getPrincipal().toString()],
     queryFn: async () => {
-      if (!identity) throw new Error('Identity not available');
-      
+      if (!identity) throw new Error("Identity not available");
+
       try {
         const actor = await createICRC1Actor(CKBTC_CANISTER_ID);
         const principal = identity.getPrincipal();
-        
+
         const balance = await actor.icrc1_balance_of({
           owner: principal.toUint8Array(),
           subaccount: [],
@@ -304,7 +314,7 @@ export function useGetCallerBtcBalance() {
           decimals: 8,
         };
       } catch (error) {
-        console.error('Error fetching ckBTC balance:', error);
+        console.error("Error fetching ckBTC balance:", error);
         return {
           balance: BigInt(0),
           decimals: 8,
@@ -321,23 +331,31 @@ export function useGetCallerQRCodeData() {
   const { identity } = useInternetIdentity();
 
   return useQuery<string>({
-    queryKey: ['qrCodeData', identity?.getPrincipal().toString()],
+    queryKey: ["qrCodeData", identity?.getPrincipal().toString()],
     queryFn: async () => {
-      if (!identity) throw new Error('Identity not available');
+      if (!identity) throw new Error("Identity not available");
       return identity.getPrincipal().toString();
     },
     enabled: !!identity,
-    staleTime: Infinity,
+    staleTime: Number.POSITIVE_INFINITY,
   });
 }
 
 export function useGetSwapRate() {
   return useMutation({
-    mutationFn: async ({ fromToken, toToken, amount }: { fromToken: string; toToken: string; amount: bigint }) => {
+    mutationFn: async ({
+      fromToken,
+      toToken,
+      amount,
+    }: { fromToken: string; toToken: string; amount: bigint }) => {
       // Note: This requires direct integration with ICPSwap pool canister
       // Pool canister ID: wkyqn-qqaaa-aaaar-qbyxq-cai
-      console.log('Fetching swap rate:', { fromToken, toToken, amount: amount.toString() });
-      
+      console.log("Fetching swap rate:", {
+        fromToken,
+        toToken,
+        amount: amount.toString(),
+      });
+
       // Placeholder rate calculation
       const rate = 1000000; // 1 ICP = 1,000,000 BITTY
       return {
@@ -355,18 +373,20 @@ export function useExecuteSwap() {
     mutationFn: async (request: SwapRequest): Promise<SwapResult> => {
       // Note: This requires direct integration with ICPSwap pool canister
       // Pool canister ID: wkyqn-qqaaa-aaaar-qbyxq-cai
-      console.log('Executing swap:', {
+      console.log("Executing swap:", {
         from: request.fromToken,
         to: request.toToken,
         amount: request.amount.toString(),
       });
-      
-      throw new Error('Swap functionality requires direct integration with ICPSwap pool canister (wkyqn-qqaaa-aaaar-qbyxq-cai). Please use the ICPSwap interface directly.');
+
+      throw new Error(
+        "Swap functionality requires direct integration with ICPSwap pool canister (wkyqn-qqaaa-aaaar-qbyxq-cai). Please use the ICPSwap interface directly.",
+      );
     },
     onSuccess: () => {
       // Invalidate balance queries to refresh after swap
-      queryClient.invalidateQueries({ queryKey: ['bittyBalance'] });
-      queryClient.invalidateQueries({ queryKey: ['icpBalance'] });
+      queryClient.invalidateQueries({ queryKey: ["bittyBalance"] });
+      queryClient.invalidateQueries({ queryKey: ["icpBalance"] });
     },
   });
 }
@@ -377,23 +397,23 @@ export function useExecuteTransfer() {
 
   return useMutation({
     mutationFn: async (request: TransferRequest): Promise<TransferResult> => {
-      if (!identity) throw new Error('Identity not available');
+      if (!identity) throw new Error("Identity not available");
 
       try {
         // Determine which canister to use based on token
         let canisterId: string;
         switch (request.token) {
-          case 'BITTYICP':
+          case "BITTYICP":
             canisterId = BITTYICP_CANISTER_ID;
             break;
-          case 'ICP':
+          case "ICP":
             canisterId = ICP_LEDGER_CANISTER_ID;
             break;
-          case 'BTC':
+          case "BTC":
             canisterId = CKBTC_CANISTER_ID;
             break;
           default:
-            throw new Error('Unsupported token');
+            throw new Error("Unsupported token");
         }
 
         const actor = await createICRC1Actor(canisterId);
@@ -402,8 +422,10 @@ export function useExecuteTransfer() {
         let recipientPrincipal: Principal;
         try {
           recipientPrincipal = Principal.fromText(request.to);
-        } catch (error) {
-          throw new Error('Invalid recipient address. Please provide a valid Principal ID.');
+        } catch (_error) {
+          throw new Error(
+            "Invalid recipient address. Please provide a valid Principal ID.",
+          );
         }
 
         // Get fee
@@ -422,51 +444,50 @@ export function useExecuteTransfer() {
           amount: request.amount,
         });
 
-        if ('Ok' in result) {
+        if ("Ok" in result) {
           return {
             success: true,
-            message: 'Transfer successful',
+            message: "Transfer successful",
             txId: result.Ok.toString(),
           };
-        } else {
-          const error = result.Err;
-          let errorMessage = 'Transfer failed';
-          
-          if (error.InsufficientFunds) {
-            errorMessage = `Insufficient funds. Balance: ${formatTokenBalance(error.InsufficientFunds.balance, 8)}`;
-          } else if (error.BadFee) {
-            errorMessage = `Bad fee. Expected: ${formatTokenBalance(error.BadFee.expected_fee, 8)}`;
-          } else if (error.GenericError) {
-            errorMessage = error.GenericError.message;
-          } else if (error.TooOld !== undefined) {
-            errorMessage = 'Transaction too old';
-          } else if (error.CreatedInFuture) {
-            errorMessage = 'Transaction created in future';
-          } else if (error.Duplicate) {
-            errorMessage = 'Duplicate transaction';
-          } else if (error.TemporarilyUnavailable !== undefined) {
-            errorMessage = 'Service temporarily unavailable';
-          }
-
-          return {
-            success: false,
-            message: errorMessage,
-          };
         }
-      } catch (error: any) {
-        console.error('Transfer error:', error);
+        const error = result.Err;
+        let errorMessage = "Transfer failed";
+
+        if (error.InsufficientFunds) {
+          errorMessage = `Insufficient funds. Balance: ${formatTokenBalance(error.InsufficientFunds.balance, 8)}`;
+        } else if (error.BadFee) {
+          errorMessage = `Bad fee. Expected: ${formatTokenBalance(error.BadFee.expected_fee, 8)}`;
+        } else if (error.GenericError) {
+          errorMessage = error.GenericError.message;
+        } else if (error.TooOld !== undefined) {
+          errorMessage = "Transaction too old";
+        } else if (error.CreatedInFuture) {
+          errorMessage = "Transaction created in future";
+        } else if (error.Duplicate) {
+          errorMessage = "Duplicate transaction";
+        } else if (error.TemporarilyUnavailable !== undefined) {
+          errorMessage = "Service temporarily unavailable";
+        }
+
         return {
           success: false,
-          message: error.message || 'Transfer failed. Please try again.',
+          message: errorMessage,
+        };
+      } catch (error: any) {
+        console.error("Transfer error:", error);
+        return {
+          success: false,
+          message: error.message || "Transfer failed. Please try again.",
         };
       }
     },
     onSuccess: (result) => {
       if (result.success) {
         // Invalidate balance queries to refresh after transfer
-        queryClient.invalidateQueries({ queryKey: ['bittyBalance'] });
-        queryClient.invalidateQueries({ queryKey: ['icpBalance'] });
-        queryClient.invalidateQueries({ queryKey: ['btcBalance'] });
+        queryClient.invalidateQueries({ queryKey: ["bittyBalance"] });
+        queryClient.invalidateQueries({ queryKey: ["icpBalance"] });
+        queryClient.invalidateQueries({ queryKey: ["btcBalance"] });
       }
     },
   });
@@ -476,7 +497,7 @@ export function useVerifyTradingAccess() {
   const { identity } = useInternetIdentity();
 
   return useQuery<boolean>({
-    queryKey: ['tradingAccess', identity?.getPrincipal().toString()],
+    queryKey: ["tradingAccess", identity?.getPrincipal().toString()],
     queryFn: async () => {
       if (!identity) return false;
       // User is authenticated with Internet Identity
