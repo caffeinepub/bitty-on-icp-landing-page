@@ -16,11 +16,6 @@ export default function TopNavigation() {
     setIsOpen(false);
   };
 
-  const openExternalLink = (url: string) => {
-    window.open(url, "_blank", "noopener,noreferrer");
-    setIsOpen(false);
-  };
-
   const openComingSoon = () => {
     setShowComingSoon(true);
     setIsOpen(false);
@@ -39,11 +34,6 @@ export default function TopNavigation() {
 
   const menuItems = [
     { label: "GAMES", sectionId: "games", type: "scroll" as const },
-    {
-      label: "BITTY BUILDER",
-      url: "https://bitty-builder-i3o.caffeine.xyz/#caffeineAdminToken=e747cadb56a2ce294fd1db85f28f9d05cfbfde3dc933d403e5e036244e4b211b",
-      type: "external" as const,
-    },
     { label: "ROADMAP", sectionId: "the-journey", type: "scroll" as const },
     {
       label: "TOKEN DASHBOARD",
@@ -57,8 +47,6 @@ export default function TopNavigation() {
   const handleMenuItemClick = (item: (typeof menuItems)[0]) => {
     if (item.type === "scroll") {
       scrollToSection(item.sectionId!);
-    } else if (item.type === "external") {
-      openExternalLink(item.url!);
     } else if (item.type === "comingSoon") {
       openComingSoon();
     }

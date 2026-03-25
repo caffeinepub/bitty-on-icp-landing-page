@@ -69,11 +69,6 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Tagline - Significantly Enlarged */}
-        <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-neon-cyan font-black mb-16 drop-shadow-glow-cyan leading-tight px-4 animate-pulse-slow">
-          The OG Crypto Mascot Returns 🚀
-        </p>
-
         {/* CTA Buttons - Enhanced with Bright Orange Glow */}
         <div className="flex flex-col items-center gap-4">
           <Button
