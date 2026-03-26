@@ -43,7 +43,7 @@ export default function Games() {
               rel="noopener noreferrer"
               className="block group"
             >
-              <p className="arcade-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-neon-orange drop-shadow-glow-orange-intense leading-relaxed group-hover:scale-105 transition-transform duration-300 animate-pulse-slow">
+              <p className="arcade-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-neon-orange leading-relaxed group-hover:scale-105 transition-transform duration-300">
                 BITTY DUCK BLAST
               </p>
             </a>
@@ -57,7 +57,7 @@ export default function Games() {
               rel="noopener noreferrer"
               className="block group"
             >
-              <p className="arcade-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-neon-orange drop-shadow-glow-orange-intense leading-relaxed group-hover:scale-105 transition-transform duration-300 animate-pulse-slow">
+              <p className="arcade-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-neon-orange leading-relaxed group-hover:scale-105 transition-transform duration-300">
                 FLY BITTY FLY
               </p>
             </a>
@@ -71,7 +71,7 @@ export default function Games() {
               rel="noopener noreferrer"
               className="block group"
             >
-              <p className="arcade-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-neon-orange drop-shadow-glow-orange-intense leading-relaxed group-hover:scale-105 transition-transform duration-300 animate-pulse-slow">
+              <p className="arcade-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-neon-orange leading-relaxed group-hover:scale-105 transition-transform duration-300">
                 BITTY BUILDER
               </p>
             </a>
