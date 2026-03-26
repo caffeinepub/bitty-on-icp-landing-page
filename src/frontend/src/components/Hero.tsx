@@ -88,7 +88,7 @@ export default function Hero() {
           <Button
             onClick={handleNewToICP}
             size="lg"
-            className="bg-neon-blue hover:bg-neon-blue/80 text-white font-black text-xl px-12 py-8 rounded-full shadow-neon-blue-intense transform hover:scale-110 transition-all duration-300 border-4 border-white/20 hover:border-white/50 group relative"
+            className="bg-neon-blue hover:bg-neon-blue/80 text-white font-black text-xl px-12 py-8 rounded-full shadow-neon-blue-intense transform hover:scale-110 transition-all duration-300 border-4 border-purple-500 hover:border-purple-300 group relative"
           >
             <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-300" />
             <Sparkles className="mr-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500 relative z-10" />
@@ -104,7 +104,7 @@ export default function Hero() {
           <Button
             onClick={handleTokenDashboardClick}
             size="lg"
-            className="bg-neon-blue hover:bg-neon-blue/80 text-white font-black text-xl px-12 py-8 rounded-full shadow-neon-blue-intense transform hover:scale-110 transition-all duration-300 border-4 border-white/20 hover:border-white/50 group relative"
+            className="bg-neon-blue hover:bg-neon-blue/80 text-white font-black text-xl px-12 py-8 rounded-full shadow-neon-blue-intense transform hover:scale-110 transition-all duration-300 border-4 border-purple-500 hover:border-purple-300 group relative"
           >
             <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-300" />
             <Sparkles className="mr-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500 relative z-10" />
@@ -120,7 +120,7 @@ export default function Hero() {
           <Button
             onClick={handleGamesClick}
             size="lg"
-            className="bg-neon-blue hover:bg-neon-blue/80 text-white font-black text-xl px-12 py-8 rounded-full shadow-neon-blue-intense transform hover:scale-110 transition-all duration-300 border-4 border-white/20 hover:border-white/50 group relative"
+            className="bg-neon-blue hover:bg-neon-blue/80 text-white font-black text-xl px-12 py-8 rounded-full shadow-neon-blue-intense transform hover:scale-110 transition-all duration-300 border-4 border-purple-500 hover:border-purple-300 group relative"
           >
             <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-300" />
             <Sparkles className="mr-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500 relative z-10" />
@@ -136,7 +136,7 @@ export default function Hero() {
           <Button
             onClick={handleRoadmapClick}
             size="lg"
-            className="bg-neon-blue hover:bg-neon-blue/80 text-white font-black text-xl px-12 py-8 rounded-full shadow-neon-blue-intense transform hover:scale-110 transition-all duration-300 border-4 border-white/20 hover:border-white/50 group relative"
+            className="bg-neon-blue hover:bg-neon-blue/80 text-white font-black text-xl px-12 py-8 rounded-full shadow-neon-blue-intense transform hover:scale-110 transition-all duration-300 border-4 border-purple-500 hover:border-purple-300 group relative"
           >
             <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-300" />
             <Sparkles className="mr-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500 relative z-10" />
@@ -152,7 +152,7 @@ export default function Hero() {
           <Button
             onClick={handleBlingClick}
             size="lg"
-            className="bg-neon-blue hover:bg-neon-blue/80 text-white font-black text-xl px-12 py-8 rounded-full shadow-neon-blue-intense transform hover:scale-110 transition-all duration-300 border-4 border-white/20 hover:border-white/50 group relative"
+            className="bg-neon-blue hover:bg-neon-blue/80 text-white font-black text-xl px-12 py-8 rounded-full shadow-neon-blue-intense transform hover:scale-110 transition-all duration-300 border-4 border-purple-500 hover:border-purple-300 group relative"
           >
             <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-300" />
             <Sparkles className="mr-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500 relative z-10" />

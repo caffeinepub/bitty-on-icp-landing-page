@@ -41,7 +41,7 @@ export default function TopNavigation() {
       type: "scroll" as const,
     },
     { label: "BITTYICP BLING", type: "comingSoon" as const },
-    { label: "CONTRACT ID", type: "contractId" as const },
+    { label: "CANISTER ID", type: "contractId" as const },
   ];
 
   const handleMenuItemClick = (item: (typeof menuItems)[0]) => {
@@ -62,7 +62,7 @@ export default function TopNavigation() {
               <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className="group relative inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-neon-blue hover:bg-neon-blue/80 text-white font-black text-base sm:text-lg md:text-xl rounded-full shadow-neon-blue-intense transform hover:scale-110 transition-all duration-300 border-4 border-white/30"
+                className="group relative inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-neon-blue hover:bg-neon-blue/80 text-white font-black text-base sm:text-lg md:text-xl rounded-full shadow-neon-blue-intense transform hover:scale-110 transition-all duration-300 border-4 border-purple-500 hover:border-purple-300"
               >
                 <span
                   className="relative z-10"
@@ -95,7 +95,7 @@ export default function TopNavigation() {
                       item.type === "contractId" ? (
                         <div
                           key={item.label}
-                          className="group relative w-full px-4 sm:px-6 py-3 sm:py-4 bg-neon-blue/20 hover:bg-neon-blue text-white font-bold text-base sm:text-lg rounded-xl shadow-lg transition-all duration-300 border-2 border-white/30 hover:border-white/50"
+                          className="group relative w-full px-4 sm:px-6 py-3 sm:py-4 bg-neon-blue/20 hover:bg-neon-blue text-white font-bold text-base sm:text-lg rounded-xl shadow-lg transition-all duration-300 border-2 border-purple-500 hover:border-purple-300"
                         >
                           <div className="flex items-center justify-between gap-3">
                             <span
@@ -149,7 +149,7 @@ export default function TopNavigation() {
                           type="button"
                           key={item.label}
                           onClick={() => handleMenuItemClick(item)}
-                          className="group relative w-full px-4 sm:px-6 py-3 sm:py-4 bg-neon-blue/20 hover:bg-neon-blue text-white font-bold text-base sm:text-lg rounded-xl shadow-lg transition-all duration-300 border-2 border-white/30 hover:border-white/50"
+                          className="group relative w-full px-4 sm:px-6 py-3 sm:py-4 bg-neon-blue/20 hover:bg-neon-blue text-white font-bold text-base sm:text-lg rounded-xl shadow-lg transition-all duration-300 border-2 border-purple-500 hover:border-purple-300"
                         >
                           <span
                             className="relative z-10"
