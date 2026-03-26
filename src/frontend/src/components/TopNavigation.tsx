@@ -63,20 +63,20 @@ export default function TopNavigation() {
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
                 className="group relative inline-flex items-center gap-3 px-10 sm:px-14 py-3 sm:py-4 bg-neon-blue hover:bg-neon-blue/80 font-black text-base sm:text-lg md:text-xl rounded-full transform hover:scale-110 transition-all duration-300 border-4 animate-shimmer-border"
-                style={{ color: "#581c87" }}
+                style={{ color: "#f97316" }}
               >
                 <span
                   className="relative z-10"
                   style={{
                     textShadow: "0 0 6px rgba(255,255,255,0.25)",
-                    color: "#581c87",
+                    color: "#f97316",
                   }}
                 >
                   A BITTY MORE
                 </span>
                 <ChevronDown
                   className={`h-5 w-5 sm:h-6 sm:w-6 transition-transform duration-300 relative z-10 ${isOpen ? "rotate-180" : ""}`}
-                  style={{ color: "#581c87" }}
+                  style={{ color: "#f97316" }}
                 />
                 <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-300" />
               </button>
