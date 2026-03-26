@@ -76,7 +76,7 @@ export default function Hero() {
                 lineHeight: "1.6",
                 color: "#FFFFFF",
                 textShadow:
-                  "0 0 20px #29ABE2, 0 0 40px #29ABE2, 0 0 60px #29ABE2",
+                  "0 0 20px #1E95CC, 0 0 40px #1E95CC, 0 0 60px #1E95CC",
               }}
             >
               WHEN YOU&apos;RE HODLING BITTY, YOUR HODLING HISTORY
