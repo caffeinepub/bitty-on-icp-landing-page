@@ -1,11 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Sparkles } from "lucide-react";
 import { useState } from "react";
+import BankModal from "./BankModal";
 import ComingSoonModal from "./ComingSoonModal";
 import FireworksTitle from "./FireworksTitle";
 
 export default function Hero() {
   const [showComingSoon, setShowComingSoon] = useState(false);
+  const [showBank, setShowBank] = useState(false);
 
   const handleNewToICP = () => {
     window.open(
@@ -41,6 +43,10 @@ export default function Hero() {
 
   const handleBlingClick = () => {
     setShowComingSoon(true);
+  };
+
+  const handleBankClick = () => {
+    setShowBank(true);
   };
 
   return (
@@ -85,6 +91,22 @@ export default function Hero() {
         </div>
 
         <div className="flex flex-col items-center gap-4">
+          <Button
+            onClick={handleBankClick}
+            size="lg"
+            className="bg-neon-blue hover:bg-neon-blue/80 text-white font-black text-xl px-12 py-8 rounded-full shadow-neon-blue-intense transform hover:scale-110 transition-all duration-300 border-4 border-purple-500 hover:border-purple-300 group relative"
+          >
+            <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-300" />
+            <Sparkles className="mr-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500 relative z-10" />
+            <span
+              className="relative z-10"
+              style={{ textShadow: "0 0 10px rgba(255,255,255,0.5)" }}
+            >
+              BITTY ICP BANK
+            </span>
+            <Sparkles className="ml-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500 relative z-10" />
+          </Button>
+
           <Button
             onClick={handleNewToICP}
             size="lg"
@@ -171,6 +193,8 @@ export default function Hero() {
         isOpen={showComingSoon}
         onClose={() => setShowComingSoon(false)}
       />
+
+      <BankModal isOpen={showBank} onClose={() => setShowBank(false)} />
     </section>
   );
 }

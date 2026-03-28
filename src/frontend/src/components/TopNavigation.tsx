@@ -1,10 +1,12 @@
 import { Check, ChevronDown, Copy } from "lucide-react";
 import { useState } from "react";
+import BankModal from "./BankModal";
 import ComingSoonModal from "./ComingSoonModal";
 
 export default function TopNavigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [showComingSoon, setShowComingSoon] = useState(false);
+  const [showBank, setShowBank] = useState(false);
   const [copied, setCopied] = useState(false);
   const contractId = "qroj6-lyaaa-aaaam-qeqta-cai";
 
@@ -21,6 +23,11 @@ export default function TopNavigation() {
     setIsOpen(false);
   };
 
+  const openBank = () => {
+    setShowBank(true);
+    setIsOpen(false);
+  };
+
   const handleCopyContractId = async (e: React.MouseEvent) => {
     e.stopPropagation();
     try {
@@ -33,6 +40,7 @@ export default function TopNavigation() {
   };
 
   const menuItems = [
+    { label: "BITTY ICP BANK", type: "bank" as const },
     { label: "GAMES", sectionId: "games", type: "scroll" as const },
     { label: "ROADMAP", sectionId: "the-journey", type: "scroll" as const },
     {
@@ -49,6 +57,8 @@ export default function TopNavigation() {
       scrollToSection(item.sectionId!);
     } else if (item.type === "comingSoon") {
       openComingSoon();
+    } else if (item.type === "bank") {
+      openBank();
     }
   };
 
@@ -181,6 +191,9 @@ export default function TopNavigation() {
         isOpen={showComingSoon}
         onClose={() => setShowComingSoon(false)}
       />
+
+      {/* Bank Modal */}
+      <BankModal isOpen={showBank} onClose={() => setShowBank(false)} />
     </>
   );
 }
