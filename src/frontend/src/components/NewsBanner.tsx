@@ -6,7 +6,7 @@ export default function NewsBanner() {
   return (
     <>
       {/* Flying NEWS Banner */}
-      <div className="fixed top-16 sm:top-20 left-0 right-0 z-40 overflow-hidden pointer-events-none h-10">
+      <div className="fixed top-24 sm:top-28 left-0 right-0 z-40 overflow-hidden pointer-events-none h-12">
         <button
           type="button"
           onClick={() => setShowModal(true)}
@@ -23,7 +23,6 @@ export default function NewsBanner() {
             className="text-sm font-bold tracking-widest"
             style={{
               color: "#FFD700",
-              textShadow: "0 0 8px #FFD700, 0 0 16px rgba(255,215,0,0.5)",
               fontFamily: "'Press Start 2P', cursive",
               fontSize: "0.6rem",
             }}
@@ -55,8 +54,6 @@ export default function NewsBanner() {
               background:
                 "linear-gradient(135deg, #1a0040 0%, #0d0030 50%, #1a0050 100%)",
               border: "2px solid #FFD700",
-              boxShadow:
-                "0 0 30px #FFD700, 0 0 60px rgba(255,215,0,0.3), inset 0 0 20px rgba(255,215,0,0.05)",
             }}
           >
             {/* Close button */}
@@ -79,7 +76,6 @@ export default function NewsBanner() {
               className="text-center font-black mb-6 leading-tight"
               style={{
                 color: "#FFD700",
-                textShadow: "0 0 12px #FFD700, 0 0 24px rgba(255,215,0,0.5)",
                 fontFamily: "'Press Start 2P', cursive",
                 fontSize: "0.75rem",
                 lineHeight: 1.6,
@@ -112,7 +108,6 @@ export default function NewsBanner() {
                   className="font-bold leading-snug group-hover:underline transition-all duration-200"
                   style={{
                     color: "#7dd3fc",
-                    textShadow: "0 0 8px rgba(125,211,252,0.5)",
                     fontFamily: "'Press Start 2P', cursive",
                     fontSize: "0.6rem",
                     lineHeight: 1.8,
@@ -129,7 +124,6 @@ export default function NewsBanner() {
                   className="font-bold leading-snug"
                   style={{
                     color: "#c4b5fd",
-                    textShadow: "0 0 8px rgba(196,181,253,0.5)",
                     fontFamily: "'Press Start 2P', cursive",
                     fontSize: "0.6rem",
                     lineHeight: 1.8,
