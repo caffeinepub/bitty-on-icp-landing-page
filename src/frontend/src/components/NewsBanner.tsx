@@ -20,11 +20,12 @@ export default function NewsBanner() {
           data-ocid="news.open_modal_button"
         >
           <span
-            className="text-sm font-bold tracking-widest"
+            className="font-black tracking-widest uppercase"
             style={{
               color: "#FFD700",
-              fontFamily: "'Press Start 2P', cursive",
-              fontSize: "0.6rem",
+              fontFamily: "'Oswald', 'Arial Black', sans-serif",
+              fontSize: "0.85rem",
+              letterSpacing: "0.15em",
             }}
           >
             📰 NEWS — CLICK TO READ LATEST UPDATES 📰
@@ -73,15 +74,15 @@ export default function NewsBanner() {
 
             {/* Title */}
             <h2
-              className="text-center font-black mb-6 leading-tight"
+              className="text-center font-black mb-6 leading-tight pt-6 px-8 uppercase tracking-wide"
               style={{
                 color: "#FFD700",
-                fontFamily: "'Press Start 2P', cursive",
-                fontSize: "0.75rem",
-                lineHeight: 1.6,
+                fontFamily: "'Oswald', 'Arial Black', sans-serif",
+                fontSize: "1.25rem",
+                letterSpacing: "0.05em",
               }}
             >
-              WHAT A GREAT DAY IT IS TO BE PART OF BITTY ON ICP!
+              WHAT A GREAT DAY IT IS TO BE A PART OF BITTY ON ICP!
             </h2>
 
             {/* Divider */}
@@ -105,12 +106,12 @@ export default function NewsBanner() {
               >
                 <span className="text-xl flex-shrink-0 mt-0.5">🎮</span>
                 <span
-                  className="font-bold leading-snug group-hover:underline transition-all duration-200"
+                  className="font-bold uppercase tracking-wide group-hover:underline"
                   style={{
                     color: "#7dd3fc",
-                    fontFamily: "'Press Start 2P', cursive",
-                    fontSize: "0.6rem",
-                    lineHeight: 1.8,
+                    fontFamily: "'Oswald', 'Arial Black', sans-serif",
+                    fontSize: "1rem",
+                    lineHeight: 1.4,
                   }}
                 >
                   TOURNAMENT IS LIVE — GO TO GAMES AND PLAY BITTY BUILDER!
@@ -121,17 +122,50 @@ export default function NewsBanner() {
               <div className="flex items-start gap-3">
                 <span className="text-xl flex-shrink-0 mt-0.5">🏦</span>
                 <span
-                  className="font-bold leading-snug"
+                  className="font-bold uppercase tracking-wide"
                   style={{
                     color: "#c4b5fd",
-                    fontFamily: "'Press Start 2P', cursive",
-                    fontSize: "0.6rem",
-                    lineHeight: 1.8,
+                    fontFamily: "'Oswald', 'Arial Black', sans-serif",
+                    fontSize: "1rem",
+                    lineHeight: 1.4,
                   }}
                 >
                   BITTY ICP BANK COMING SOON!!!
                 </span>
               </div>
+            </div>
+
+            {/* Play Bitty Builder CTA */}
+            <div className="flex justify-center mt-6">
+              <a
+                href="https://bitty-builder-i3o.caffeine.xyz/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-6 py-3 rounded-xl font-black tracking-widest uppercase transition-all duration-200"
+                style={{
+                  fontFamily: "'Oswald', 'Arial Black', sans-serif",
+                  fontSize: "1rem",
+                  color: "#FFD700",
+                  background: "rgba(30, 0, 60, 0.9)",
+                  border: "2px solid #FFD700",
+                  letterSpacing: "0.1em",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.background =
+                    "rgba(255,215,0,0.15)";
+                  (e.currentTarget as HTMLAnchorElement).style.transform =
+                    "scale(1.05)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.background =
+                    "rgba(30, 0, 60, 0.9)";
+                  (e.currentTarget as HTMLAnchorElement).style.transform =
+                    "scale(1)";
+                }}
+                data-ocid="news.play_button"
+              >
+                🎮 PLAY BITTY BUILDER
+              </a>
             </div>
 
             {/* Bottom glow line */}
