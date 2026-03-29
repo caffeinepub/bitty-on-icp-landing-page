@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Games from "./components/Games";
 import Hero from "./components/Hero";
 import LegalDisclaimer from "./components/LegalDisclaimer";
+import NewsBanner from "./components/NewsBanner";
 import Partnerships from "./components/Partnerships";
 import Socials from "./components/Socials";
 import Story from "./components/Story";
@@ -27,6 +28,7 @@ function AppContent() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900">
       <TopNavigation />
+      <NewsBanner />
       <div className="pt-16 sm:pt-20">
         <Hero />
         <FeaturedCharacter />

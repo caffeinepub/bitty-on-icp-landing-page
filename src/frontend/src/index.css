@@ -260,37 +260,51 @@
   animation: fly-banner-fast 10s linear infinite;
 }
 
+/* Flying news banner animation - 18s loop */
+@keyframes fly-news {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-fly-news {
+  animation: fly-news 18s linear infinite;
+}
+
 /* Arcade-style font for game titles */
 .font-arcade {
   font-family: "Press Start 2P", cursive;
 }
 
-/* Sparkle shimmer border animation for A BITTY MORE tab */
+/* Neon gold sparkle shimmer border animation for A BITTY MORE tab */
 @keyframes shimmer-border {
   0% {
-    box-shadow: 0 0 4px 1px #a855f7, 0 0 8px 2px #c084fc, inset 0 0 4px 0px
-      #a855f7;
-    border-color: #a855f7;
+    box-shadow: 0 0 4px 1px #ffd700, 0 0 8px 2px #ffc107, inset 0 0 4px 0px
+      #ffd700;
+    border-color: #ffd700;
   }
   25% {
-    box-shadow: 0 0 8px 3px #e879f9, 0 0 16px 4px #ffffff88, inset 0 0 6px 1px
-      #e879f9;
-    border-color: #e879f9;
+    box-shadow: 0 0 8px 3px #ffe566, 0 0 16px 4px #ffffff88, inset 0 0 6px 1px
+      #ffe566;
+    border-color: #ffe566;
   }
   50% {
-    box-shadow: 0 0 12px 4px #c084fc, 0 0 24px 6px #a855f7aa, inset 0 0 8px 2px
-      #c084fc;
-    border-color: #c084fc;
+    box-shadow: 0 0 12px 4px #ffc107, 0 0 24px 6px rgba(255, 215, 0, 0.67),
+      inset 0 0 8px 2px #ffc107;
+    border-color: #ffc107;
   }
   75% {
-    box-shadow: 0 0 6px 2px #ffffff99, 0 0 14px 4px #a855f7, inset 0 0 5px 1px
+    box-shadow: 0 0 6px 2px #ffffff99, 0 0 14px 4px #ffd700, inset 0 0 5px 1px
       #ffffff66;
-    border-color: #a855f7;
+    border-color: #ffb300;
   }
   100% {
-    box-shadow: 0 0 4px 1px #a855f7, 0 0 8px 2px #c084fc, inset 0 0 4px 0px
-      #a855f7;
-    border-color: #a855f7;
+    box-shadow: 0 0 4px 1px #ffd700, 0 0 8px 2px #ffc107, inset 0 0 4px 0px
+      #ffd700;
+    border-color: #ffd700;
   }
 }
 

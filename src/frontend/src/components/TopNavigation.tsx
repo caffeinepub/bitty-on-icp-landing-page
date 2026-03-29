@@ -62,6 +62,14 @@ export default function TopNavigation() {
     }
   };
 
+  // Shared gold border style for dropdown items
+  const goldItemClass =
+    "group relative w-full px-4 sm:px-6 py-3 sm:py-4 bg-neon-blue/20 hover:bg-neon-blue text-white font-bold text-base sm:text-lg rounded-xl shadow-lg transition-all duration-300";
+  const goldItemStyle = {
+    border: "2px solid #FFD700",
+    boxShadow: "0 0 6px rgba(255,215,0,0.3)",
+  };
+
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-purple-900/95 via-purple-800/95 to-indigo-900/95 backdrop-blur-md border-b-4 border-neon-blue shadow-neon-blue-intense">
@@ -110,7 +118,8 @@ export default function TopNavigation() {
                       item.type === "contractId" ? (
                         <div
                           key={item.label}
-                          className="group relative w-full px-4 sm:px-6 py-3 sm:py-4 bg-neon-blue/20 hover:bg-neon-blue text-white font-bold text-base sm:text-lg rounded-xl shadow-lg transition-all duration-300 border-2 border-purple-500 hover:border-purple-300"
+                          className={goldItemClass}
+                          style={goldItemStyle}
                         >
                           <div className="flex items-center justify-between gap-3">
                             <span
@@ -164,7 +173,8 @@ export default function TopNavigation() {
                           type="button"
                           key={item.label}
                           onClick={() => handleMenuItemClick(item)}
-                          className="group relative w-full px-4 sm:px-6 py-3 sm:py-4 bg-neon-blue/20 hover:bg-neon-blue text-white font-bold text-base sm:text-lg rounded-xl shadow-lg transition-all duration-300 border-2 border-purple-500 hover:border-purple-300"
+                          className={goldItemClass}
+                          style={goldItemStyle}
                         >
                           <span
                             className="relative z-10"
