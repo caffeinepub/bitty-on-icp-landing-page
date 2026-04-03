@@ -34,6 +34,14 @@ export default function Hero() {
     }
   };
 
+  const handleDrawsClick = () => {
+    window.open(
+      "https://bitty-on-icp-giveaways-fef.caffeine.xyz/#/",
+      "_blank",
+      "noopener,noreferrer",
+    );
+  };
+
   const handleRoadmapClick = () => {
     const theJourneySection = document.getElementById("the-journey");
     if (theJourneySection) {
@@ -151,6 +159,22 @@ export default function Hero() {
               style={{ textShadow: "0 0 10px rgba(255,255,255,0.5)" }}
             >
               GAMES
+            </span>
+            <Sparkles className="ml-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500 relative z-10" />
+          </Button>
+
+          <Button
+            onClick={handleDrawsClick}
+            size="lg"
+            className="bg-neon-blue hover:bg-neon-blue/80 text-white font-black text-xl px-12 py-8 rounded-full shadow-neon-blue-intense transform hover:scale-110 transition-all duration-300 border-4 border-purple-500 hover:border-purple-300 group relative"
+          >
+            <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-300" />
+            <Sparkles className="mr-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500 relative z-10" />
+            <span
+              className="relative z-10"
+              style={{ textShadow: "0 0 10px rgba(255,255,255,0.5)" }}
+            >
+              BITTY ON ICP DRAWS
             </span>
             <Sparkles className="ml-2 h-6 w-6 group-hover:rotate-180 transition-transform duration-500 relative z-10" />
           </Button>

@@ -3,6 +3,13 @@ import { useState } from "react";
 import BankModal from "./BankModal";
 import ComingSoonModal from "./ComingSoonModal";
 
+type MenuItem =
+  | { label: string; type: "bank" }
+  | { label: string; type: "scroll"; sectionId: string }
+  | { label: string; type: "comingSoon" }
+  | { label: string; type: "contractId" }
+  | { label: string; type: "externalLink"; href: string };
+
 export default function TopNavigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [showComingSoon, setShowComingSoon] = useState(false);
@@ -39,26 +46,34 @@ export default function TopNavigation() {
     }
   };
 
-  const menuItems = [
-    { label: "BITTY ICP BANK", type: "bank" as const },
-    { label: "GAMES", sectionId: "games", type: "scroll" as const },
-    { label: "ROADMAP", sectionId: "the-journey", type: "scroll" as const },
+  const menuItems: MenuItem[] = [
+    { label: "BITTY ICP BANK", type: "bank" },
+    { label: "GAMES", sectionId: "games", type: "scroll" },
+    {
+      label: "BITTY ON ICP DRAWS",
+      type: "externalLink",
+      href: "https://bitty-on-icp-giveaways-fef.caffeine.xyz/#/",
+    },
+    { label: "ROADMAP", sectionId: "the-journey", type: "scroll" },
     {
       label: "TOKEN DASHBOARD",
       sectionId: "token-dashboard",
-      type: "scroll" as const,
+      type: "scroll",
     },
-    { label: "BITTYICP BLING", type: "comingSoon" as const },
-    { label: "CANISTER ID", type: "contractId" as const },
+    { label: "BITTYICP BLING", type: "comingSoon" },
+    { label: "CANISTER ID", type: "contractId" },
   ];
 
-  const handleMenuItemClick = (item: (typeof menuItems)[0]) => {
+  const handleMenuItemClick = (item: MenuItem) => {
     if (item.type === "scroll") {
-      scrollToSection(item.sectionId!);
+      scrollToSection(item.sectionId);
     } else if (item.type === "comingSoon") {
       openComingSoon();
     } else if (item.type === "bank") {
       openBank();
+    } else if (item.type === "externalLink") {
+      window.open(item.href, "_blank", "noopener,noreferrer");
+      setIsOpen(false);
     }
   };
 
